@@ -1,0 +1,255 @@
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat s1.sh
+#!/bin/bash
+
+echo "Hello"
+read name
+echo "I am $name"
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat s2.sh
+#!/bin/bash
+
+read num1
+read num2
+echo "sum=`expr $num1 + $num2`"
+echo "Subtraction=`expr $num1 - $num2`"
+echo "Multiplication="`expr $num1 \* $num2`
+echo "Division=`expr $num1 / $num2`"
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat s3.sh
+#!/bin/bash
+
+name=vishal
+surname=shinde
+echo "$name $surname"
+echo "$name$surname"
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat s4.sh
+#!/bin/bash
+
+echo "parameter1=$1"
+echo "parameter2=$2"
+echo "name of script=$0"
+echo "String=$*"
+echo "String="$@""
+echo "Total no of arguments=$#"
+echo "Process id=$$"
+echo "$?"
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat s5.sh
+#!/bin/bash
+
+for i in {1..100}
+do
+    if [ `expr $i % 2` -ne 0 ]
+    then
+         echo "$i"
+    fi
+done
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$  cat grade.sh
+#!/bin/bash
+
+read grade
+if [ $grade -gt 90 ]
+then
+        echo "You got A++ grade"
+elif [[ ( $grade -le 90 ) && ( $grade -gt 80 ) ]]
+then
+        echo "You got A grade"
+elif [[ ( $grade -le 80 ) && ( $grade -gt 70 ) ]]
+then
+        echo "You got B grade"
+elif [[ ( $grade -le 70 ) && ( $grade -gt 55 ) ]]
+then
+        echo "You got C grade"
+elif [[ ( $grade -le 55 ) && ( $grade -ge 40 ) ]]
+then
+        echo "You got D grade"
+ else
+         echo "Sorry,You Fail"
+fi
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat oddeven.sh
+#!/bin/bash
+
+for i in {1..100}
+do
+      if [ `expr $i % 2` -eq 0 ]
+        then
+               echo "$i is Even"
+       else
+               echo "$i is odd"
+      fi
+
+done
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat oddeven1.sh
+#!/bin/bash
+echo "Enter num:"
+read num
+      if [ `expr $num % 2` -eq 0 ]
+        then
+               echo "$num is Even"
+       else
+               echo "$num is odd"
+      fi
+
+
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat greaternumber.sh
+#!/bin/bash
+
+echo "num1"
+read num1
+echo "num2"
+read num2
+echo "num3"
+read num3
+
+if [[ ( $num1 -gt $num2 ) && ( $num1 -gt $num3 ) ]]
+then
+        echo "num1=$num1 is greater"
+elif [ $num2 -gt $num3 ]
+then
+        echo "num2=$num2 is greater"
+else
+        echo "num3=$num3 is greater"
+fi
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat switch.sh
+#!/bin/bash
+
+read Day
+
+case "$Day" in
+           1) echo "Monday" ;;
+           2) echo "Tuesday" ;;
+           3) echo "Wednesday" ;;
+           4) echo "Thursday";;
+           5) echo "Friday";;
+           6) echo "Saturday";;
+           7) echo "Sunday";;
+           *) echo "Invalid input";;
+   esac
+   
+   
+   
+   
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat pattern1.sh
+#!/bin/bash
+
+for i in {1..4}
+do
+        for(( j = $i; j < 5; j++ ))
+    do
+        echo -n "* "
+    done
+      echo ""
+done
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat pyramid.sh
+#!/bin/bash
+
+for(( i = 1 ; i <= 5 ; i++ ))
+do
+        for(( j = 5 ; j > $i ; j-- ))
+    do
+        echo -n " "
+    done
+    for(( k = 1 ; k <= $i ; k++ ))
+    do
+        echo -n "$k "
+    done
+      echo ""
+done
+
+
+
+
+for(( i = 4 ; i >=1 ; i-- ))
+do
+        for(( j = 4 ; j >= $i ; j-- ))
+    do
+        echo -n " "
+    done
+    for(( k = 1 ; k <= $i ; k++ ))
+    do
+        echo -n "$k "
+    done
+      echo ""
+done
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat hollowpattern.sh
+#!/bin/bash
+
+for i in {1..5}
+do
+        for(( j = $i; j < 5; j++ ))
+    do
+        echo -n " "
+    done
+        for(( k = 1; k <= $i; k++ ))
+    do
+            if [[ ( $i -eq 5 ) || ( $i -eq $k ) || ( $k -eq 1 ) ]]
+            then
+                  echo -n "*"
+          else
+                echo -n " "
+            fi
+    done
+      echo ""
+done
+
+
+
+
+cdac@LAPTOP-SC35B43P:~/Scripting$ cat hollowpattern2.sh
+#!/bin/bash
+
+for i in {1..5}
+do
+        for(( j = $i; j < 5; j++ ))
+    do
+        echo -n " "
+    done
+        for(( k = 1; k <= $i; k++ ))
+    do
+            if [[ ( $i -eq 5 ) || ( $i -eq $k ) || ( $k -eq 1 ) ]]
+            then
+                  echo -n "* "
+          else
+                echo -n "  "
+            fi
+    done
+      echo ""
+done
